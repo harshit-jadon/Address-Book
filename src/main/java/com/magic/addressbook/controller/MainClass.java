@@ -1,55 +1,51 @@
+
+
 package com.magic.addressbook.controller;
 import com.magic.addressbook.entity.Person;
-import com.magic.addressbook.services.Options;
+import com.magic.addressbook.services.*;
+
 import java.util.Scanner;
 
 public class MainClass {
-
-    public static void main(String[] args) {
+    public static void main(String[] args){
         System.out.println("Welcome to Address Book");
         Scanner scanner = new Scanner(System.in);
-        Options options = new Options();
-        System.out.println("PRESS U (FOR NEW CONTACT)");
+        Ioptions options = new Options();
+        System.out.println("PRESS A (FOR ADD CONTACT)");
         System.out.println("PRESS E (FOR EDIT CONTACT)");
-        System.out.println("PRESS D (FOR DELETE CONTACT)");
+        System.out.println("PRESS D (FOR DISPLAY CONTACT)");
+        System.out.println("PRESS X (FOR DELETE CONTACT)");
+        int exit =0;
         char response = scanner.nextLine().charAt(0);
-
-//            if (response == 'U') {
-//                options.update();
-//
-//            } else if (response == 'E') {
-//                System.out.println("Enter Name");
-//                Scanner sc1 = new Scanner(System.in);
-//                String name = sc1.nextLine();
-//                options.edit(name);
-//
-//            } else if (response == 'D') {
-//                System.out.println("Enter Name");
-//                Scanner sc1 = new Scanner(System.in);
-//                String name = sc1.nextLine();
-//                options.delete(name);
-//
-//            } else {
-//                System.out.println("you enter wrong keyword");
-//            }
-        while((response !='U') && (response !='E') && (response !='D')){
-            System.out.println("Invalid choice!. Enter correct option 'U' , 'E', 'D' " );
-
-
+        while((response !='A') && (response !='E') && (response !='D') && (response !='X')) {
+            System.out.println("Invalid choice!. Enter correct option 'A' , 'E', 'D', 'X' ");
             response = scanner.nextLine().charAt(0);
-        }
-        switch(response) {
-            case 'U':
-                options.update();
-                break;
+//            while(exit==0){}
+            switch(response) {
+                case 'A':
+                    options.addcontact();
+                    options.display();
+                    break;
 
-            case 'E':
+                case 'E':
+                    break;
 
-            case 'D':
-                break;
+                case 'D':
+                    options.display();
+                    break;
 
-            default:
+                case 'X':
+                    break;
+
+                default:
+                    exit = 1;
+            }
+
         }
     }
-
 }
+
+
+
+
+
