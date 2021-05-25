@@ -29,5 +29,17 @@ public class Person{
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
 
-
+    @Override
+    public String toString() {
+        return "Person{" +
+                "first_name='" + first_name + '\'' +
+                ", last_name='" + last_name + '\'' +
+                ", address='" + address + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", email='" + email + '\'' +
+                ", zip='" + zip + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                '}';
+    }
 }
