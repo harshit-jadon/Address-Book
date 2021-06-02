@@ -1,11 +1,14 @@
 package com.magic.addressbook.controller;
+
+import java.util.List;
 import java.util.Scanner;
 
 import com.magic.addressbook.entity.Person;
 import com.magic.addressbook.services.*;
 
 public class MainClass {
-    public static void main(String[] args){
+//    public static void main(String[] args){
+    public void options(List<Person> contacts){
         System.out.println("Welcome to Address Book");
         Scanner scanner = new Scanner(System.in);
         Ioptions options = new Options();
@@ -21,26 +24,26 @@ public class MainClass {
              response = scanner.nextLine().charAt(0);
             switch(response){
                 case 'A':
-                    options.addcontact();
-                    options.display();
+                    options.addcontact(contacts);
+                    options.display(contacts);
                     break;
                 case 'U' :
                     System.out.println("Enter first name");
                     String editNa1 = scanner.nextLine();
                     System.out.println("Enter last name");
                     String editNa2 = scanner.nextLine();
-                    options.edit(editNa1, editNa2, new Person());
+                    options.edit(editNa1, editNa2,contacts);
+
                             break;
                 case 'D':
-                    options.display();
+                    options.display(contacts);
                     break;
                 case 'X':
-
                     System.out.println("enter first name");
                     String deleteN = scanner.nextLine();
                     System.out.println("Enter Last Name");
                     String deleteL = scanner.nextLine();
-                    options.delete(deleteN, deleteL );
+                    options.delete(deleteN, deleteL,contacts );
 
                     break;
                 default:

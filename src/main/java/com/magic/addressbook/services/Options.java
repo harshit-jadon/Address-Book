@@ -4,12 +4,13 @@ import com.magic.addressbook.entity.Person;
 import java.util.*;
 public class Options implements Ioptions {
 
-    Person person = new Person();
-    ArrayList<Person> contacts = new ArrayList<Person>();
+
+//    ArrayList<Person> contacts = new ArrayList<Person>()
     Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void addcontact() {
+    public void addcontact(List<Person> contacts) {
+        Person person = new Person();
         System.out.println("first name");
         person.setFirst_name(scanner.nextLine());
         System.out.println("last name");
@@ -28,7 +29,7 @@ public class Options implements Ioptions {
         person.setEmail(scanner.nextLine());
         contacts.add(person);
     }
-    public void edit(String first_name, String last_name, Person person) {
+    public void edit(String first_name, String last_name,List<Person> contacts) {
         String editS = scanner.nextLine();
         System.out.println("Enter First Name");
         String editNa = scanner.nextLine();
@@ -48,13 +49,13 @@ public class Options implements Ioptions {
         for (Person contact : contacts) {
             if (contact.getFirst_name().equalsIgnoreCase(first_name) && contact.getLast_name().equalsIgnoreCase(last_name)) {
                 flag = 1;
-                contact.setFirst_name(person.getFirst_name());
-                contact.setLast_name(person.getLast_name());
-                contact.setCity(person.getCity());
-                contact.setState(person.getState());
-                contact.setZip(person.getZip());
-                contact.setPhone_number(person.getPhone_number());
-                contact.setEmail(person.getEmail());
+                contact.setFirst_name(editNa);
+                contact.setLast_name(editLa);
+                contact.setCity(editCi);
+                contact.setState(editSt);
+                contact.setZip(editPi);
+                contact.setPhone_number(editMo);
+                contact.setEmail(editEm);
                 break;
             }
         }
@@ -66,20 +67,25 @@ public class Options implements Ioptions {
 
 
     @Override
-    public void display(){
+    public void display(List<Person> contacts){
         for(int i = 0; i < contacts.size(); i++)
-        System.out.println(contacts.get(0).toString()); // System.out.println(contacts.get(i));
+        System.out.println(contacts.get(0).toString());
     }
 
     @Override
-    public void delete(String first_name, String last_name) {
-        for (int i=0; i<contacts.size(); i++) {
-            if (contacts.get(i).getFirst_name().equals(first_name)) {
-                contacts.remove(i);
-                System.out.println("Delete Successfully");
+    public void delete(String deleteN, String deleteL,List<Person> contacts) {
+        int flag = 0;
+        for (Person contact : contacts) {
+            if (contact.getFirst_name().equalsIgnoreCase(deleteN) && contact.getLast_name().equalsIgnoreCase(deleteL)) {
+                flag = 1;
+                contacts.remove(contact);
+                break;
             }
-            System.out.println("no record found");
-            }
+        }
+        if(flag == 1)
+            System.out.println("Contact deleted successfully");
+        else
+            System.out.println("Contact Not found");
 
         }
 
