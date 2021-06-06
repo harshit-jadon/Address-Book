@@ -31,4 +31,23 @@ public class AddressBook implements IaddressBook {
         }
     }
 
+    @Override
+    public void showPersonCity(String city) {
+       int count = 0;
+        for (Map.Entry mapElement : addressBook.entrySet()) {
+            System.out.println((String)mapElement.getKey());
+            String key = null;
+            List<Person> contacts = addressBook.get(key);
+            for(Person contact : contacts){
+                if(contact.getCity().equalsIgnoreCase(contact.getCity())){
+
+                    System.out.println(contact);
+                    count++;
+                }
+            }
+
+        }
+        System.out.println("person is from "+ city);
+    }
+
 }

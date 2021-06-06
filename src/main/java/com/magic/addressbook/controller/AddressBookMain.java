@@ -37,6 +37,7 @@ public class AddressBookMain {
                     String find = scanner.nextLine();
                     System.out.println("Enter City name");
                     String city = scanner.nextLine();
+                    iaddressbook.showPersonCity(city);
 
                     break;
 

@@ -9,5 +9,7 @@ public interface IaddressBook {
 
     void showAllAddressBook();
 
+    void showPersonCity(String city);
+
 
 }
