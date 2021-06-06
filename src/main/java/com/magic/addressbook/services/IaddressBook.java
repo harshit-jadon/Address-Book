@@ -11,5 +11,7 @@ public interface IaddressBook {
 
     void showPersonCity(String city);
 
+    void showCountInCity(String state);
+
 
 }

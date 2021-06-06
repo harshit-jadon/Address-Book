@@ -12,6 +12,7 @@ public class AddressBookMain {
             System.out.println("PRESS O (for OPEN Address Book)");
             System.out.println("PRESS S (for SHOW All Address Book)");
             System.out.println("PRESS F (for Search Person from City");
+            System.out.println("Press P (for See the number of Persons in a Particular City");
             System.out.println("PRESS E (for EXIT Address Book)");
             response = scanner.nextLine().charAt(0);
             switch (response){
@@ -38,8 +39,13 @@ public class AddressBookMain {
                     System.out.println("Enter City name");
                     String city = scanner.nextLine();
                     iaddressbook.showPersonCity(city);
-
                     break;
+                case 'P':
+                    System.out.println("Enter City");
+                    String countInCity = scanner.nextLine();
+                    iaddressbook.showCountInCity(countInCity);
+
+                        break;
 
                 default:
                     break;

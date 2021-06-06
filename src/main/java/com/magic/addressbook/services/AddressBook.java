@@ -37,7 +37,7 @@ public class AddressBook implements IaddressBook {
         for (Map.Entry mapElement : addressBook.entrySet()) {
             System.out.println((String)mapElement.getKey());
             String key = null;
-            List<Person> contacts = addressBook.get(key);
+            List<Person> contacts = addressBook.get((String) mapElement.getKey());
             for(Person contact : contacts){
                 if(contact.getCity().equalsIgnoreCase(contact.getCity())){
 
@@ -49,5 +49,12 @@ public class AddressBook implements IaddressBook {
         }
         System.out.println("person is from "+ city);
     }
-
+    @Override
+    public void showCountInCity(String state){
+        for (Map.Entry mapElement : addressBook.entrySet()) {
+            System.out.println((String) mapElement.getKey());
+            List<Person> contacts = addressBook.get((String) mapElement.getKey());
+            System.out.println(contacts.stream().filter(n -> n.getCity().equalsIgnoreCase(state)).count() + "you are from " + state);
+        }
+        }
 }
