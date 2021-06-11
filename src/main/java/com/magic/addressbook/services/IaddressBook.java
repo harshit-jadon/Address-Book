@@ -9,5 +9,9 @@ public interface IaddressBook {
 
     void showAllAddressBook();
 
+    void showPersonCity(String city);
+
+    void showCountInCity(String state);
+
 
 }

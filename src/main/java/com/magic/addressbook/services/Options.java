@@ -28,7 +28,22 @@ public class Options implements Ioptions {
         System.out.println("email");
         person.setEmail(scanner.nextLine());
         contacts.add(person);
+        int flag = 0;
+        String first_name = person.getFirst_name();
+        String last_name = person.getLast_name();
+        for (Person contact : contacts) {
+            if (contact.getFirst_name().equalsIgnoreCase(first_name) && contact.getLast_name().equalsIgnoreCase(last_name)){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==1) System.out.println("Person already existed");
+        else{
+            contacts.add(person);
+        }
+
     }
+    @Override
     public void edit(String first_name, String last_name,List<Person> contacts) {
         String editS = scanner.nextLine();
         System.out.println("Enter First Name");
